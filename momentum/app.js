@@ -1,6 +1,18 @@
-let title = document.querySelector("#hello"); // ID로 찾기
-title = document.querySelector(".hello h1"); // class로 찾기
-// querySelector는 CSS Selector처럼 사용
-// querySelector는 맨처음 요소만 받음 - 전부 필요하면 querySelectorAll로 array 받아서 사용
+let title = document.querySelector(".hello h1"); // class로 찾기
 
-title.innerText = "Hello";
+function handleTitleClick()
+{
+    title.style.color = "blue";
+}
+function handleMouseEnter()
+{
+    title.innerText = "Mouse is here!";
+}
+function handleMouseLeave()
+{
+    title.innerText = "Mouse is gone!"
+}
+
+title.addEventListener("click", handleTitleClick);
+title.addEventListener("mouseenter", handleMouseEnter);
+title.addEventListener("mouseleave", handleMouseLeave);
