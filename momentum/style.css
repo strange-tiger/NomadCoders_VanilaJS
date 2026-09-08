@@ -1,4 +1,4 @@
-body
+.hidden
 {
-    background-color: beige;
+    display: none;
 }
