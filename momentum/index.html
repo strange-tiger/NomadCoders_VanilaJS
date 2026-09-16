@@ -2,15 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Random Number Game</h1>
-    <h2>Generate a number between 0 and <input type="number" /></h2>
-    <h3>Guess the number: <input type="number" /><button>play!</button></h3>
-    <div id="chose"></div>
-    <div id="result"></div>
-    <script src="main.js"></script>
+    <div>
+      <h3 class="js-title">
+        Generate a number between 0 and <input id="maxNumber" type="number" />
+      </h3>
+    </div>
+    <form id="js-guess">
+      <label>Guess the number:</label>
+      <input type="number" max="200" min="5" />
+      <button>Play!</button>
+    </form>
+    <div id="js-result">
+      <span></span>
+    </div>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>

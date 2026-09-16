@@ -1,19 +1,22 @@
-const chose = document.querySelector('#chose');
-const result = document.querySelector('#result');
-const button = document.querySelector('button');
-const maxInput = document.querySelector('h2 input');
-const choseInput = document.querySelector('h3 input');
+const guessForm = document.getElementById('js-guess');
+const result = document.getElementById('js-result');
+const maxNumber = document.getElementById('maxNumber');
 
-function game() {
-  const max = maxInput.value;
-  const randomNum = parseInt(Math.floor(Math.random() * max));
-  const choseNum = choseInput.value;
-  chose.innerText = `You chose: ${choseNum}, the machine chose: ${randomNum}\n`;
-  if (choseNum != randomNum) {
-    result.innerText = 'You lost!';
-  } else {
-    result.innerText = 'You won!';
+function handleGuessSubmit(e) {
+  e.preventDefault();
+  const guessInput = guessForm.querySelector('input');
+  if (guessInput.value === '' && maxNumber === '') {
+    return;
   }
+  const max = maxNumber.value;
+  const random = Math.ceil(Math.random() * max);
+  const userGuess = parseInt(guessInput.value, 10);
+  const resultSpan = result.querySelector('span');
+  resultSpan.innerHTML = `
+  You chose: ${userGuess},
+  the machine chose: ${random}.<br />
+  <strong>${userGuess === random ? 'You won!' : 'You lost!'}</strong>
+  `;
 }
 
-button.addEventListener('click', game);
+guessForm.addEventListener('submit', handleGuessSubmit);
