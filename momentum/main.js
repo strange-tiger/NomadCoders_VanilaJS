@@ -18,16 +18,15 @@ const colors = [
   '#ffd32a',
   '#ff3f34',
 ];
+const btn = document.querySelector('button');
 
-function choseRandomColor()
-{
-  const randomColorOne = Math.floor(Math.random() * colors.length);
-  const chosenColorOne = colors[randomColorOne];
-  const randomColorTwo = Math.floor(Math.random() * colors.length);
-  const chosenColorTwo = colors[randomColorTwo];
-
-  document.body.style.backgroundImage = `linear-gradient(to right, ${chosenColorOne}, ${chosenColorTwo})`;
+function handleClick() {
+  const a = colors[Math.floor(Math.random() * colors.length)];
+  const b = colors[Math.floor(Math.random() * colors.length)];
+  if (a === b) {
+    return handleClick();
+  }
+  document.body.style.background = `linear-gradient(to left, ${a}, ${b})`;
 }
 
-const btn = document.querySelector("button");
-btn.addEventListener("click", choseRandomColor);
+btn.addEventListener('click', handleClick);
