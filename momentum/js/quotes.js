@@ -36,13 +36,13 @@ const quotes = [
         from: "Rene Descartes"
     },
     {
-        quote: "Know yourself",
-        from: "소크라테스"
+        quote: "You only live once, but if you do it right, once is enough.",
+        from: "Mae West"
     }
 ]
 
-const quote = document.querySelector("#quote span:first-child");
-const from = document.querySelector("#quote span:last-child");
+const quote = document.querySelector("#quote");
+const from = document.querySelector("#quote-author");
 
 const randomNum = Math.floor(Math.random() * quotes.length);
 const todaysQuote = quotes[randomNum];
